@@ -1,0 +1,159 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+// Vars
+$background-color: #E5E7DF;
+$primary-color: #000;
+
+$primary-font: 'Source Code Pro', sans-serif;
+
+* {
+  font-family: $primary-font;
+}
+
+body {
+  background-color: $background-color;
+}
+
+a{
+    color: $primary-color;
+    text-decoration: none;
+
+    &:visited{
+        color: $primary-color;
+    }
+
+
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: $primary-color;
+}
+
+// Header
+.header-primary{
+    width: 100%;
+    height: 100px;
+
+    background-color: $primary-color;
+
+    .inner-header{
+
+        .inner-header-row{
+
+            .inner-header-nav{
+                height: 100px;
+
+                // Vertically center the logo
+                display: flex;
+                align-items: center;
+                justify-content: left;
+
+                ul{
+                    margin: 0px;
+                    padding: 0px;
+
+                    li{
+                        display: inline;
+                        margin-right: 20px;
+
+                        a{
+                            color: #fff;
+                            font-weight: 700;
+                            font-size: 1.0rem;
+
+                            &:hover{
+                                color: darken($primary-color, 10%);
+                            }
+                        }
+
+                        &:last-child{
+                            margin-right: 0;
+                        }
+
+                        &.active, &:hover{
+                            border-bottom: 2px solid #fff;
+
+                            a{
+
+                            }
+                        }
+                    }
+                }
+            }
+
+            .inner-header-branding{
+                text-align: center;
+                
+                // Vertically center the logo
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                height: 100px;
+
+                padding-top: 5px;
+
+                h2{
+                    margin-bottom: 0px;
+                    color: white;
+                    font-family: 'Libre Caslon Text';
+                }
+
+                p{
+                    margin-top: 0px;
+                    font-size: 0.8rem;
+                    color: white;
+                    font-family: 'Libre Caslon Text';
+                }
+            }
+
+            .inner-header-cta{
+                height: 100px; 
+                
+                // Vertically center the logo
+                display: flex;
+                align-items: center;
+                justify-content: right;
+
+                ul{
+
+                    li{
+                        display: inline;
+                        margin-right: 20px;
+
+                        a{
+                            color: #fff;
+                            font-weight: 700;
+                            font-size: 1.0rem;
+
+                            &:hover{
+                                color: darken($primary-color, 10%);
+                            }
+                        }
+
+                        &:last-child{
+                            margin-right: 0;
+                        }
+
+                        &.active, &:hover{
+
+                            border-bottom: 2px solid $primary-color;
+
+                            a{
+                                color: darken($primary-color, 10%);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
