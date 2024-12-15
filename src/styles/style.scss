@@ -1,16 +1,59 @@
 // Fonts
 @import url('https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+
+// PP Mori font face
+@font-face {
+  font-family: 'PP Mori';
+  src: url('/fonts/ppmori/PPMori-Regular.otf') format('opentype');
+}
+
+// PP Mori Italic font face
+@font-face {
+  font-family: 'PP Mori Italic';
+  src: url('/fonts/ppmori/PPMori-Italic.otf') format('opentype');
+}
+
+// PP Mori Bold font face
+@font-face {
+  font-family: 'PP Mori Bold';
+  src: url('/fonts/ppmori/PPMori-SemiBold.otf') format('opentype');
+}
+
+// PP Mori Bold Italic font face
+@font-face {
+  font-family: 'PP Mori Bold Italic';
+  src: url('/fonts/ppmori/PPMori-SemiBoldItalic.otf') format('opentype');
+}
+
+// PP Mori Light font face
+@font-face {
+  font-family: 'PP Mori Light';
+  src: url('/fonts/ppmori/PPMori-ExtraLight.otf') format('opentype');
+}
+
+// PP Mori Light Italic font face
+@font-face {
+  font-family: 'PP Mori Light Italic';
+  src: url('/fonts/ppmori/PPMori-ExtraLightItalic.otf') format('opentype');
+}
+
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
 // Vars
-$background-color: #E5E7DF;
-$primary-color: #000;
+$background-color: #0a0a0a;
+$primary-color: #ebeae6;
 
-$primary-font: 'Source Code Pro', sans-serif;
+$primary-font: 'PP Mori Light', sans-serif;
+
+// Smooth scrolling
+html {
+  scroll-behavior: smooth;
+}
 
 * {
   font-family: $primary-font;
+  color: white;
 }
 
 body {
@@ -24,8 +67,6 @@ a{
     &:visited{
         color: $primary-color;
     }
-
-
 }
 
 h1,
@@ -37,12 +78,41 @@ h6 {
   color: $primary-color;
 }
 
+// Noise
+.noise{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: url('/images/noise.gif');
+    opacity: 0.07;
+}
+
 // Header
+.header-background{
+    background: $background-color;
+    opacity: 0.9;
+    height: 100px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+
+    // Blur the background
+    backdrop-filter: blur(10px);
+}
+
 .header-primary{
     width: 100%;
     height: 100px;
 
-    background-color: $primary-color;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1001;
 
     .inner-header{
 
@@ -63,6 +133,8 @@ h6 {
                     li{
                         display: inline;
                         margin-right: 20px;
+
+                        padding-bottom: 10px;
 
                         a{
                             color: #fff;
@@ -104,14 +176,13 @@ h6 {
                 h2{
                     margin-bottom: 0px;
                     color: white;
-                    font-family: 'Libre Caslon Text';
+                    font-family: "PP Mori Bold", sans-serif;
                 }
 
                 p{
                     margin-top: 0px;
                     font-size: 0.8rem;
                     color: white;
-                    font-family: 'Libre Caslon Text';
                 }
             }
 
@@ -123,11 +194,15 @@ h6 {
                 align-items: center;
                 justify-content: right;
 
+                padding-top: 20px;
+
                 ul{
 
                     li{
                         display: inline;
                         margin-right: 20px;
+
+                        margin-top: 15px;
 
                         a{
                             color: #fff;
@@ -149,6 +224,323 @@ h6 {
 
                             a{
                                 color: darken($primary-color, 10%);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Footer
+.footer-main{
+    margin-top: 100px;
+
+    padding-top: 50px;
+    padding-bottom: 50px;
+
+    background: $background-color;
+
+    .inner-footer{
+
+        .footer-large-text{
+            text-align: center;
+            padding-bottom: 50px;
+
+            h2{
+                // Font size to fill the container
+                font-size: 7.5vw;
+            }
+        }
+
+        .footer-row{
+            border-top: 2px solid $primary-color;
+
+            .footer-copyright{
+
+                .footer-copyright-inner{
+                    padding-top: 25px;
+                }
+            }
+
+            .footer-contact{
+
+                .footer-contact-inner{
+                    padding-top: 25px;
+
+                    .footer-contact-item{
+
+                        h3{
+                            font-size: 1.2rem;
+                            font-family: "PP Mori Bold", sans-serif;
+
+                            padding-bottom: 10px;
+                        }
+
+                        ul{
+                            margin: 0px;
+                            padding: 0px;
+
+                            li{
+                                list-style: none;
+                                margin-bottom: 0px;
+
+                                font-size: 1rem;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Buttons
+.btn{
+    background: $primary-color;
+    color: $background-color;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-family: "PP Mori Bold", sans-serif;
+    font-size: 1.0rem;
+    text-transform: uppercase;
+
+    &:hover{
+        background: darken($primary-color, 10%);
+        color: $background-color;
+    }
+}
+
+// Page
+.page{
+    padding-top: 150px;
+
+    .page-inner{
+
+        .page-container{
+
+            .page-header{
+
+                h1{
+                    font-size: 7.5vw;
+                }
+
+                p{
+                    font-size: 1.5rem;
+                }
+            }
+
+            .line-break{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                padding-top: 50px;
+                padding-bottom: 50px;
+
+                .line-break-text{
+                    text-align: center;
+                    margin-top: 50px;
+                    text-transform: uppercase;
+
+                    background: $primary-color;
+                    padding: 0px 10px;
+                    margin: 0px;
+                    border-radius: 5px;
+
+                    height: 18px;
+                    line-height: 1.6;
+
+                    color: $background-color;
+
+                    font-family: "PP Mori Bold", sans-serif;
+                    font-size: .8rem;
+                }
+
+                .line-break-inner{
+                    height: 3px;
+                    background-color: $primary-color;
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+
+// Welcome page
+.welcome-page{
+
+    .welcome-page-inner{
+
+        .welcome-page-greeting{
+            text-align: left;
+            margin-top: 50px;
+
+            h1{
+                font-size: 3.0rem;
+            }
+        }
+
+        .welcome-page-cta{
+            margin-top: 100px;
+
+            p{
+                // Fill font size to the container
+                font-size: 7.5vw;
+                font-family: "PP Mori Bold", sans-serif;
+
+                line-height: 1.0;
+            }
+        }
+
+        .welcome-page-first-img-split{
+            margin-top: 150px;
+            background-image: url("https://images.unsplash.com/photo-1525498128493-380d1990a112?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            height: 400px;
+        }
+
+        .welcome-page-about{
+
+            .inner-about{
+
+                h2{
+                    font-size: 1.0rem;
+                }
+
+                p{
+                    font-size: 2.0rem;
+                    font-family: "PP Mori Bold", sans-serif;
+                }
+
+                .inner-about-grid{
+                    padding-top: 50px;
+
+                    .inner-about-grid-item{
+
+                        h3{
+                            font-size: 1.0rem;
+                        }
+
+                        p{
+                            font-size: 1.5rem;
+                        }
+
+                        ul{
+                            margin: 0px;
+                            padding: 0px;
+
+                            li{
+                                list-style: none;
+                                margin-bottom: 5px;
+
+                                font-size: 1.2rem;
+                                font-family: "PP Mori Bold", sans-serif;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .welcome-page-services{
+
+            .inner-services{
+
+                h2{
+                    font-size: 1.0rem;
+                }
+
+                p{
+                    font-size: 2.0rem;
+                    font-family: "PP Mori Bold", sans-serif;
+                }
+
+                .inner-services-grid{
+                    padding-top: 50px;
+
+                    .inner-services-grid-item{
+                        display: flex;
+                        background: $primary-color;
+                        border-radius: 8px;
+
+                        padding: 20px;
+                        margin-bottom: 30px;
+
+                        .inner-services-grid-item-number{
+                            font-size: 3.5rem;
+                            font-family: "PP Mori Bold", sans-serif;
+
+                            padding-right: 50px;
+                            color: $background-color;
+                        }
+
+                        .inner-services-grid-item-content{
+
+                            h2{
+                                font-size: 2em;
+                                font-family: "PP Mori Bold", sans-serif;
+                                color: $background-color;
+
+                            }
+
+                            p{
+                                font-size: 1.5rem;
+                                font-family: "PP Mori Light", sans-serif;
+                                color: $background-color;
+
+                            }
+
+                            ul{
+                                margin: 0px;
+                                padding: 0px;
+
+                                li{
+                                    list-style:decimal inside;
+                                    margin-bottom: 5px;
+
+                                    font-size: 1.2rem;
+
+                                    color: $background-color;
+
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .welcome-page-work{
+
+            .inner-work{
+
+                h2{
+                    font-size: 1.0rem;
+                }
+
+                p{
+                    font-size: 2.0rem;
+                    font-family: "PP Mori Bold", sans-serif;
+                }
+
+                .inner-work-grid{
+                    padding-top: 50px;
+
+                    .inner-work-grid-item{
+                        
+                        .inner-work-grid-item-img{
+                            margin-bottom: 15px;
+
+                            img{
+                                width: 100%;
+                                height: 100%;
+                                object-fit: cover;
+                                border-radius: 8px;
                             }
                         }
                     }

@@ -21,6 +21,11 @@ const Header = () => {
                                     Welcome
                                 </Link>    
                             </li>
+                            <li className={isActive('/services')}>
+                                <Link href="/services">
+                                    Services
+                                </Link>
+                            </li>
                             <li className={isActive('/work')}>
                                 <Link href="/work">
                                     Work
