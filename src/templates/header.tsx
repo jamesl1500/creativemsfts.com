@@ -14,7 +14,7 @@ const Header = () => {
         <header className="header-primary">
             <div className="inner-header container">
                 <div className="inner-header-row row">
-                    <div className="inner-header-nav col-lg-4 d-md-none">
+                    <div className="inner-header-nav col-lg-4 d-md-none d-lg-flex">
                         <ul>
                             <li className={isActive('/')} >
                                 <Link href="/">
@@ -34,7 +34,7 @@ const Header = () => {
                             <p>EST. 2023</p>
                         </Link>
                     </div>
-                    <div className="inner-header-cta col-lg-4 d-md-none">
+                    <div className="inner-header-cta col-lg-4 d-md-none d-lg-flex">
                         <ul>
 {/*                             <li>
                                 <Link href="/subscriptions">
